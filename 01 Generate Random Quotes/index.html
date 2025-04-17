@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- Css File -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Generate Random Quotes</title>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="box">
+          <div class="number"><span>0</span></div>
+          <h1 class="heading">Quote Will Appear Here😊</h1>
+          <div class="quote-content"></div>
+          <div class="buttons">
+            <button class="generate-btn btn">
+              <i class="fa-solid fa-play"> </i>
+              Generate
+            </button>
+            <button class="auto-btn btn">
+              <i class="fa-solid fa-repeat"></i>
+              Auto
+            </button>
+            <button class="stop-btn btn">
+              <i class="fa-solid fa-stop"></i>
+              Stop
+            </button>
+            <button class="show-btn btn">
+              <i class="fa-solid fa-bookmark"></i>
+              Show
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="auto-text hidden">Auto:On</div>
+    </section>
+    <div class="bookmarks hidden">
+      <div class="exit">X</div>
+    </div>
+    <div class="overlay hidden"></div>
+    <script src="main.js"></script>
+  </body>
+</html>
