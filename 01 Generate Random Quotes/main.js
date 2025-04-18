@@ -5,6 +5,7 @@ const autoButton = document.querySelector(".auto-btn");
 const autoText = document.querySelector(".auto-text");
 const stopButton = document.querySelector(".stop-btn");
 const showButton = document.querySelector(".show-btn");
+const buttonsContainer = document.querySelector(".buttons");
 const numberContainer = document.querySelector(".number span");
 const quoteContainer = document.querySelector(".quote-content");
 const overlayContainer = document.querySelector(".overlay");
@@ -20,7 +21,7 @@ localStorage.removeItem("quotes");
 
 const getQuote = async function () {
   try {
-    const response = await fetch("quotes.json ");
+    const response = await fetch("https://api.quotable.io/random ");
     if (!response.ok) throw new Error("⚠️⚠️ Something Went Wrong");
     const data = await response.json();
     return data;
@@ -30,16 +31,14 @@ const getQuote = async function () {
 };
 // Generating Quote ....
 const generateQuote = async function () {
-  const { quotes } = await getQuote();
-  const randomNumber = Math.floor(Math.random() * quotes.length);
-  const quote = quotes[randomNumber];
+  const quote = await getQuote();
   const storedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
 
   const html = ` 
 
   <p class="quote-text">
     <i class="fa-solid fa-quote-left"></i>
-    ${quote.quote}
+    ${quote.content}
     <i class="fa-solid fa-quote-right"></i>
     <i class="fa-solid fa-bookmark bookmark-icon"></i>
     </p>
@@ -71,8 +70,6 @@ const stopAutoGenerateQuote = function () {
 };
 // Show Bookmarked Quotes
 const showQuotes = function () {
-  const storedQuotes = JSON.parse(localStorage.getItem("quotes")) || [];
-
   overlayContainer.classList.remove("hidden");
   bookmarksContainer.classList.remove("hidden");
   if (bookmarks.length === 0) {
@@ -86,7 +83,7 @@ const showQuotes = function () {
       <div class="quote-content">
       <p class="quote-text">
        ${index + 1}. <i class="fa-solid fa-quote-left"></i>
-        ${bookmark.quote}
+        ${bookmark.content}
         <i class="fa-solid fa-quote-right"></i>
         </p>
         <span class="author">${bookmark.author}</span>
@@ -109,14 +106,13 @@ const delBookmark = function () {
   bookmarks.pop();
   localStorage.setItem("quotes", JSON.stringify(storedQuotes));
 };
-generateButton.addEventListener("click", () => {
-  if (!auto) generateQuote();
+// Handle All Buttons
+buttonsContainer.addEventListener("click", (e) => {
+  if (e.target.closest(".generate-btn") && !auto) generateQuote();
+  if (e.target.closest(".auto-btn") && !auto) autoGenerateQuote();
+  if (e.target.closest(".stop-btn")) stopAutoGenerateQuote();
+  if (e.target.closest(".show-btn")) showQuotes();
 });
-autoButton.addEventListener("click", () => {
-  if (!auto) autoGenerateQuote();
-});
-stopButton.addEventListener("click", stopAutoGenerateQuote);
-showButton.addEventListener("click", showQuotes);
 // Exit Bookmarks Box
 bookmarksContainer.addEventListener("click", (e) => {
   if (e.target.closest(".exit")) {
@@ -132,6 +128,7 @@ document.addEventListener("keydown", (e) => {
     bookmarksContainer.innerHTML = `<div class="exit">X</div>`;
   }
 });
+
 quoteContainer.addEventListener("click", async function (e) {
   if (e.target.closest(".bookmark-icon")) {
     e.target.classList.toggle("blue-color");
