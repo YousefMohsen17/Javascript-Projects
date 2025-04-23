@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Currency Converter</title>
+  </head>
+  <body>
+    <div class="cur-converter">
+      <div class="container">
+        <div class="amount box">
+          <span>Amount</span>
+          <input type="text" />
+        </div>
+        <div class="from box">
+          <span>From</span>
+          <select name="from">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="EGP">EGP</option>
+            <option value="KWD">KWD</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </div>
+        <div class="to box">
+          <span>To</span>
+          <select name="to">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="EGP">EGP</option>
+            <option value="KWD">KWD</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </div>
+      </div>
+      <div class="result">
+        <button type="submit" class="convert-button">Convert</button>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
