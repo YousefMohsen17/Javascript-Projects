@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Bookmarks Manager</title>
+  </head>
+  <body>
+    <form class="add-bookmark">
+      <h1>Add New Bookmark</h1>
+      <input type="text" placeholder="Website Text" class="website-text" />
+      <input type="text" placeholder="Website Url" class="website-url" />
+      <div class="categories-list">
+        <p>Choose From Categories List Or Add A New One</p>
+      </div>
+      <input
+        type="text"
+        placeholder="New Category Name"
+        class="category-name"
+      />
+      <button type="submit" class="btn add-bookmark-btn">Add Bookmark</button>
+    </form>
+    <h1 class="show-bookmarks">Show All Bookmarks</h1>
+    <div class="filter-bookmarks">
+      <p>Filter Bookmarks By Added Categories</p>
+    </div>
+    <div class="bookmarks"></div>
+    <script src="main.js"></script>
+  </body>
+</html>
