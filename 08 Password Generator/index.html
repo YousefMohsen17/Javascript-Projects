@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Password Generator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="options">
+        <div class="pass-length">
+          <label> Password Length</label>
+          <input
+            type="text"
+            placeholder="Password Length[1-32]"
+            min="1"
+            max="32"
+            value="10"
+          />
+        </div>
+        <label class="numbers" for="num">
+          Numbers
+          <input type="checkbox" checked id="num" />
+        </label>
+        <label class="char">
+          Special Chars
+          <input type="checkbox" checked id="special" />
+        </label>
+      </div>
+      <button type="button">Generate Password</button>
+      <div class="pass-appearance">
+        <p>Password Will Appear Here</p>
+      </div>
+      <div class="pass-generated">
+        <p>Latest 10 Generated Passwords</p>
+      </div>
+      <div class="all-passwords"></div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
