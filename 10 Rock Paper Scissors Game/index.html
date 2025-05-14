@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="player-choice">
+        <div class="box">
+          <img src="images/rock.png" alt="" />
+          <span>Rock</span>
+        </div>
+        <div class="box">
+          <img src="images/paper.png" alt="" />
+          <span>Paper</span>
+        </div>
+        <div class="box">
+          <img src="images/scissors.png" alt="" />
+          <span>Scissors</span>
+        </div>
+      </div>
+      <div class="game">
+        <div class="player-play">
+          <h1>You</h1>
+          <img src="images/choose.png" alt="" />
+        </div>
+        <div class="computer-play">
+          <h1>Computer</h1>
+          <img src="images/random.png" alt="" />
+        </div>
+        <span>Versus</span>
+      </div>
+      <div class="history">
+        <h1>Match History</h1>
+      </div>
+      <table>
+        <thead class="hidden">
+          <tr>
+            <th>#</th>
+            <th>Your Choice</th>
+            <th>Computer's Choice</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="result">
+        <div>Wins <span class="wins">0</span></div>
+        <div>Loses<span class="loses">0</span></div>
+        <div>Draw<span class="draws">0</span></div>
+      </div>
+      <button class="reset-score">Reset Score</button>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
